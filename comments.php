@@ -1,6 +1,6 @@
 <?php
 
-function buildTree(array $comments)
+function buildTree(array $comments): array
 {
     $commentMap = [];
     foreach ($comments as $comment) {
@@ -13,7 +13,7 @@ function buildTree(array $comments)
 }
 
 
-function printComment(array $comment, $level = 0)
+function printComment(array $comment, int $level = 0): void
 {
     echo "<li style='margin-left:" . 40 * $level . "px'>" . $comment['comment']. "</li>";
     foreach ($comment['children'] as $child) {
@@ -22,7 +22,7 @@ function printComment(array $comment, $level = 0)
 }
 
 
-function printTree($commentTree)
+function printTree($commentTree): void
 {
     foreach ($commentTree as $comment) {
         if ($comment['parentId'] == $comment['id']) {
